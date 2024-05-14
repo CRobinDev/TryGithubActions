@@ -29,7 +29,7 @@ jobs:
           gcloud auth configure-docker asia-southeast2-docker.pkg.dev
           
           echo "Building the Docker image"
-          docker build -t asia-southeast2-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/github-actions/golang:latest .
+          docker build -t asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/golang:latest .
           
           echo "Pushing the Docker image"
-          docker push asia-southeast2-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/github-actions/golang:latest
+          docker push asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/golang:latest
