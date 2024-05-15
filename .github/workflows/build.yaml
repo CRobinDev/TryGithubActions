@@ -21,10 +21,10 @@ jobs:
           export_default_credentials: true
 
       - name: Create .env file
-        run: |
-          echo "DB_URL=${{ secrets.ENV_DB_URL }}" >> .env
-          echo "PORT=${{ secrets.ENV_PORT }}" >> .env
-        shell: bash
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          ENV_TEST_API_KEY: ${{ secrets.DB_URL }}
+          ENV_ANOTHER_KEY: ${{ secrets.PORT }}
 
       - name: Build and push the Docker image
         env:
