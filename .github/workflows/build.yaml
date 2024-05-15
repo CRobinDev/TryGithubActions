@@ -20,6 +20,11 @@ jobs:
           service_account_key: ${{ secrets.GOOGLE_CREDENTIALS }}
           export_default_credentials: true
 
+      - name: Create .env file
+        run: |
+          echo "DB_URL=$(echo ${{ secrets.ENV }} | jq -r '.DB_URL')" >> .env
+          echo "PORT=$(echo ${{ secrets.ENV }} | jq -r '.PORT')" >> .env
+
       - name: Build and push the Docker image
         env:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
