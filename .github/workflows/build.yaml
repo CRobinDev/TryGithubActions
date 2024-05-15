@@ -1,5 +1,4 @@
-name: Deploy Code to GitHub
-
+name: Deploy Code to GitHub Actions
 on:
   push:
     branches:
