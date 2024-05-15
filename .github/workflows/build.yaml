@@ -22,8 +22,7 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "DB_URL=${{ secrets.DB_URL }}" > .env
-          echo "PORT=${{ secrets.PORT }}" >> .env
+          echo "$ENV" > .env
         shell: bash
 
       - name: Build and push the Docker image
