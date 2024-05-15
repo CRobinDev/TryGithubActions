@@ -23,8 +23,8 @@ jobs:
       - name: Create .env file
         uses: ozaytsev86/create-env-file@v1
         with:
-          ENV_TEST_API_KEY: ${{ secrets.DB_URL }}
-          ENV_ANOTHER_KEY: ${{ secrets.PORT }}
+          ENV_DB_URL: ${{ secrets.DB_URL }}
+          ENV_PORT: ${{ secrets.PORT }}
 
       - name: Build and push the Docker image
         env:
