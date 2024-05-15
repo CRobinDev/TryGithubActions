@@ -4,16 +4,11 @@ import (
 	"API/controllers"
 	"API/initializers"
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
-
-func init() {
-	initializers.ConnectToDB()
-}
 
 func main() {
 	err := godotenv.Load()
@@ -23,15 +18,10 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
-	}
-
-	log.Printf("Starting server on %s:%s...\n", os.Getenv("HOST"), port)
-	err = http.ListenAndServe(":"+port, nil)
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		port = "3000"
 	}
 	
+	initializers.ConnectToDB()
 	r := gin.Default()
 	r.GET("/ping", gin.HandlerFunc(func(c *gin.Context) {
 		c.JSON(200, gin.H{
