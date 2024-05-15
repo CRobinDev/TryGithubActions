@@ -25,10 +25,10 @@ jobs:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
           echo "Authenticating Docker with gcloud"
-          gcloud auth configure-docker asia-southeast2-docker.pkg.dev
+          gcloud auth configure-docker asia-southeast2-docker.pkg.dev --quiet 
           
           echo "Building the Docker image"
-          docker build -t asia-southeast2-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/github-actions/golang:latest .
+          docker build -t asia-southeast2-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/github-actions/percobaan:latest .
           
           echo "Pushing the Docker image"
-          docker push asia-southeast2-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/github-actions/golang:latest
+          docker push asia-southeast2-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/github-actions/percobaan:latest
