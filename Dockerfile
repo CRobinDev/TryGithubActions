@@ -6,6 +6,9 @@ ENV HOST 0.0.0.0
 
 COPY . .
 
+# Ensure the .env file is copied (if it exists)
+COPY .env .env
+
 RUN go build -o bin .
 
-ENTRYPOINT [ "./bin" ]
+ENTRYPOINT ["./bin"]
